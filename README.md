@@ -32,3 +32,11 @@ would have name, qualification, CV, …)
 
 The positions are assumed to be specific to one nursery (rather than say "any nursery in city X"), which simplifies the 
 schema. Otherwise, a one-to-many mapping table would be needed between positions and nurseries.
+
+The server implements CRUD operations on the Database using a simple REST API (rather than GraphQL, for example). The
+sensitive operations are "protected" by a token verification, here as a simple presence check. This is assumed to be 
+an actual token verification for logged-in Famly users since only them should perform these operations. Note that 
+Applicants and Application can only be created by non-users, not read.
+
+The simple protection also doesn't differentiate between users, it would be more realistic to only allow a given
+nursery manager to view data for their nursery while the group manager would need access to everything. 

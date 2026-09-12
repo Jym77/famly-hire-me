@@ -1,23 +1,16 @@
 import { describe, it, expect, beforeEach } from 'vitest';
 import request from 'supertest';
-import { app } from '../index.js';
-import { db } from '../db.js';
+import { createApp } from '../index.js';
+import { createDatabase } from '../db.js';
 
 describe('Positions API', () => {
+  let app: any;
+  let db: any;
+
   beforeEach(() => {
-    // Reset DB to seed state before each test
-    db.exec('DELETE FROM applications');
-    db.exec('DELETE FROM positions');
-    db.exec(`
-      INSERT INTO positions (id, nursery_id, data) VALUES 
-        (1, 1, 'Lead Educator'),
-        (2, 1, 'Assistant Teacher'),
-        (3, 2, 'Center Manager'),
-        (4, 3, 'Early Years Specialist'),
-        (5, 3, 'Toddler Room Leader'),
-        (6, 4, 'Junior Apprentice'),
-        (7, 4, 'Part-time Caregiver');
-    `);
+    // Create a fresh DB and App instance for every single test
+    db = createDatabase();
+    app = createApp(db);
   });
 
   describe('GET /positions', () => {

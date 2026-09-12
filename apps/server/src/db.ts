@@ -1,13 +1,7 @@
 import Database from 'better-sqlite3';
 
-/** @internal */
 export type DB = InstanceType<typeof Database>;
 
-/**
- * Mock database factory, exporting it allows to start with a new one for tests.
- *
- * @internal
- * */
 export function createDatabase(): DB {
   const db = new Database(':memory:');
 
@@ -37,8 +31,8 @@ export function createDatabase(): DB {
       applicant_id INTEGER NOT NULL,
       data TEXT,
       status TEXT DEFAULT 'received',
-      FOREIGN KEY (position_id) REFERENCES positions(id),
-      FOREIGN KEY (applicant_id) REFERENCES applicants(id)
+      FOREIGN KEY (position_id) REFERENCES positions(id) ON DELETE CASCADE,
+      FOREIGN KEY (applicant_id) REFERENCES applicants(id) ON DELETE CASCADE
     );
 
     -- Seed Data
@@ -70,8 +64,3 @@ export function createDatabase(): DB {
 
   return db;
 }
-
-/**
- * This should be replaced by a connection to an actual database.
- */
-export const db: DB = createDatabase();

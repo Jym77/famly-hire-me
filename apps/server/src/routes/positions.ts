@@ -1,12 +1,17 @@
 import { Router, Request, Response } from 'express';
-import { db } from '../db.js';
+import { DB } from '../db.js';
 import { authMiddleware } from '../auth.js';
 
 const router = Router();
 
+const getDb = (req: Request): DB => {
+  return req.app.get('db');
+};
+
 // GET /positions - List all positions
 router.get('/', (req, res) => {
   try {
+    const db = getDb(req);
     const positions = db.prepare('SELECT * FROM positions').all();
     res.json(positions);
   } catch (err: any) {
@@ -17,6 +22,7 @@ router.get('/', (req, res) => {
 // GET /positions/:id - Get specific position
 router.get('/:id', (req, res) => {
   try {
+    const db = getDb(req);
     const position = db.prepare('SELECT * FROM positions WHERE id = ?').get(req.params.id);
     if (!position) {
       return res.status(404).json({ error: 'Position not found' });
@@ -30,6 +36,7 @@ router.get('/:id', (req, res) => {
 // POST /positions - Create new position (Admin only)
 router.post('/', authMiddleware, (req, res) => {
   try {
+    const db = getDb(req);
     const { nursery_id, data } = req.body;
     if (typeof nursery_id !== 'number' || typeof data !== 'string') {
       return res.status(400).json({ error: 'Invalid input: nursery_id must be number and data must be string' });
@@ -44,6 +51,7 @@ router.post('/', authMiddleware, (req, res) => {
 // PATCH /positions/:id - Update status (Admin only)
 router.patch('/:id', authMiddleware, (req, res) => {
   try {
+    const db = getDb(req);
     const { status } = req.body;
     if (typeof status !== 'string') {
       return res.status(400).json({ error: 'Invalid input: status must be a string' });
@@ -61,6 +69,7 @@ router.patch('/:id', authMiddleware, (req, res) => {
 // DELETE /positions/:id - Delete position (Admin only)
 router.delete('/:id', authMiddleware, (req, res) => {
   try {
+    const db = getDb(req);
     const result = db.prepare('DELETE FROM positions WHERE id = ?').run(req.params.id);
     if (result.changes === 0) {
       return res.status(404).json({ error: 'Position not found' });
