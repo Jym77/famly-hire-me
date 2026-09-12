@@ -53,3 +53,8 @@ While the `server` app itself uses a mock database in its tests, the actual fron
 their own tests (i.e. there isn't a separated production and test server), this should be solved by separate dotenv files
 to use a different server (for end-to-end tests), or a local mock of the server for snapshot and unit tests. The only
 server being already more or less a mock, that was skipped…
+
+## Frontends
+
+The frontends are essentially SPAs sowing views of the corresponding tables, with clickabale cards for details and 
+interaction. 

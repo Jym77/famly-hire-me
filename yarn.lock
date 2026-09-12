@@ -1055,6 +1055,7 @@ __metadata:
     oxlint: "npm:^1.82.0"
     react: "npm:^19.3.0"
     react-dom: "npm:^19.3.0"
+    react-router-dom: "npm:^7.18.3"
     typescript: "npm:^7.0.2"
     ui: "workspace:*"
     utils: "workspace:*"
@@ -1332,6 +1333,13 @@ __metadata:
   version: 0.7.2
   resolution: "cookie@npm:0.7.2"
   checksum: 10c0/9596e8ccdbf1a3a88ae02cf5ee80c1c50959423e1022e4e60b91dd87c622af1da309253d8abdb258fb5e3eacb4f08e579dc58b4897b8087574eee0fd35dfa5d2
+  languageName: node
+  linkType: hard
+
+"cookie@npm:^1.0.1":
+  version: 1.1.1
+  resolution: "cookie@npm:1.1.1"
+  checksum: 10c0/79c4ddc0fcad9c4f045f826f42edf54bcc921a29586a4558b0898277fa89fb47be95bc384c2253f493af7b29500c830da28341274527328f18eba9f58afa112c
   languageName: node
   linkType: hard
 
@@ -2189,6 +2197,7 @@ __metadata:
     oxlint: "npm:^1.82.0"
     react: "npm:^19.3.0"
     react-dom: "npm:^19.3.0"
+    react-router-dom: "npm:^7.18.3"
     typescript: "npm:^7.0.2"
     ui: "workspace:*"
     utils: "workspace:*"
@@ -2656,6 +2665,34 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-router-dom@npm:^7.18.3":
+  version: 7.18.3
+  resolution: "react-router-dom@npm:7.18.3"
+  dependencies:
+    react-router: "npm:7.18.3"
+  peerDependencies:
+    react: ">=18"
+    react-dom: ">=18"
+  checksum: 10c0/1d04bb38f64e9c429d4f162ca6c5ffc163a02c0a5c08748440a58fc0e9b1e8c8edc2bc4509e9966dcd0873e57fc6a090fd356244d581567737aac1ae6236e799
+  languageName: node
+  linkType: hard
+
+"react-router@npm:7.18.3":
+  version: 7.18.3
+  resolution: "react-router@npm:7.18.3"
+  dependencies:
+    cookie: "npm:^1.0.1"
+    set-cookie-parser: "npm:^2.6.0"
+  peerDependencies:
+    react: ">=18"
+    react-dom: ">=18"
+  peerDependenciesMeta:
+    react-dom:
+      optional: true
+  checksum: 10c0/77686cad916f8928e6c4aeafe5f8dc26384e84897849ff7d771ddee67af02b788c103503d029ffa442f7bf42aa47b3779440e70fc1aeae90532120fae4036b0f
+  languageName: node
+  linkType: hard
+
 "react@npm:^19.2.8, react@npm:^19.3.0":
   version: 19.3.0
   resolution: "react@npm:19.3.0"
@@ -2852,6 +2889,13 @@ __metadata:
     vitest: "npm:^5.0.0"
   languageName: unknown
   linkType: soft
+
+"set-cookie-parser@npm:^2.6.0":
+  version: 2.7.2
+  resolution: "set-cookie-parser@npm:2.7.2"
+  checksum: 10c0/4381a9eb7ee951dfe393fe7aacf76b9a3b4e93a684d2162ab35594fa4053cc82a4d7d7582bf397718012c9adcf839b8cd8f57c6c42901ea9effe33c752da4a45
+  languageName: node
+  linkType: hard
 
 "setprototypeof@npm:~1.2.0":
   version: 1.2.0
@@ -3435,6 +3479,7 @@ __metadata:
   resolution: "utils@workspace:packages/utils"
   dependencies:
     typescript: "npm:~6.0.2"
+    vitest: "npm:^5.0.0"
   languageName: unknown
   linkType: soft
 

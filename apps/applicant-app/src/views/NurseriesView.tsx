@@ -12,7 +12,7 @@ export const NurseriesView: React.FC<NurseriesViewProps> = ({ nurseries, positio
   const [searchTerm, setSearchTerm] = useState('');
   const [vacancyFilter, setVacancyFilter] = useState<'all' | 'has' | 'none'>('all');
 
-  const filteredNurseries = filterNurseries(nurseries, positions, searchTerm, vacancyFilter);
+  const filteredNurseries = filterNurseries(nurseries, positions, [], searchTerm, vacancyFilter, 'all');
 
   return (
     <div>

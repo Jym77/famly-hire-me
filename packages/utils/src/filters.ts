@@ -10,15 +10,28 @@ export interface Position {
   status: string;
 }
 
+export interface Application {
+  id: number;
+  position_id: number;
+  applicant_id: number;
+  data: string;
+  status: string;
+}
+
 export function filterNurseries(
   nurseries: Nursery[],
   positions: Position[],
+  applications: Application[],
   searchTerm: string,
-  vacancyFilter: 'all' | 'has' | 'none'
+  vacancyFilter: 'all' | 'has' | 'none',
+  appFilter: 'all' | 'has' | 'none'
 ): Nursery[] {
   return nurseries.filter(nursery => {
     const nurseryPositions = positions.filter(p => p.nursery_id === nursery.id);
     const hasPositions = nurseryPositions.length > 0;
+    
+    const nurseryPositionIds = nurseryPositions.map(p => p.id);
+    const hasApplications = applications.some(app => nurseryPositionIds.includes(app.position_id));
     
     const matchesSearch = 
       nursery.data.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -29,7 +42,12 @@ export function filterNurseries(
       (vacancyFilter === 'has' && hasPositions) || 
       (vacancyFilter === 'none' && !hasPositions);
 
-    return matchesSearch && matchesVacancy;
+    const matchesApps = 
+      appFilter === 'all' || 
+      (appFilter === 'has' && hasApplications) || 
+      (appFilter === 'none' && !hasApplications);
+
+    return matchesSearch && matchesVacancy && matchesApps;
   });
 }
 

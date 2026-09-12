@@ -8,19 +8,30 @@ interface Nursery {
 
 interface NurseryCardProps {
   nursery: Nursery;
-  hasPositions: boolean;
+  hasPositions?: boolean;
+  hasApplications?: boolean;
   onClick?: () => void;
 }
 
-export const NurseryCard: React.FC<NurseryCardProps> = ({ nursery, hasPositions, onClick }) => {
+export const NurseryCard: React.FC<NurseryCardProps> = ({ nursery, hasPositions, hasApplications, onClick }) => {
   return (
     <div className="position-card" onClick={onClick}>
       <h3>{nursery.data}</h3>
       <p>ID: {nursery.id}</p>
-      <Badge 
-        text={hasPositions ? 'Has Openings' : 'No Openings'} 
-        type={hasPositions ? 'open' : 'closed'} 
-      />
+      <div style={{ display: 'flex', gap: '5px', flexWrap: 'wrap', marginBottom: '15px' }}>
+        {hasPositions !== undefined && (
+          <Badge 
+            text={hasPositions ? 'Has Openings' : 'No Openings'} 
+            type={hasPositions ? 'open' : 'closed'} 
+          />
+        )}
+        {hasApplications !== undefined && (
+          <Badge 
+            text={hasApplications ? 'Has Applicants' : 'No Applicants'} 
+            type={hasApplications ? 'open' : 'closed'} 
+          />
+        )}
+      </div>
     </div>
   );
 };

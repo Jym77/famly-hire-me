@@ -40,11 +40,8 @@ function App() {
       
       if (!nursRes.ok || !posRes.ok) throw new Error('Failed to fetch data');
       
-      const nursData = await nursRes.json();
-      const posData = await posRes.json();
-      
-      setNurseries(nursData);
-      setPositions(posData);
+      setNurseries(await nursRes.json());
+      setPositions(await posRes.json());
     } catch (err: any) {
       setError(err.message);
     } finally {
@@ -82,17 +79,17 @@ function App() {
   return (
     <div className="portal-container">
       <header className="portal-header">
-        <h1>Famly Hire Me</h1>
+        <h1>Applicants portal</h1>
         <p>Find your next great role in early years education</p>
         <nav className="portal-nav">
           <button 
-            className={`nav-btn ${view === 'nurseries' ? 'active' : ''}`} 
+            className={`nav-btn ${view === 'nurseries' && !selectedNursery && !selectedPosition ? 'active' : ''}`} 
             onClick={() => { setView('nurseries'); setSelectedNursery(null); setSelectedPosition(null); }}
           >
             Nurseries
           </button>
           <button 
-            className={`nav-btn ${view === 'positions' ? 'active' : ''}`} 
+            className={`nav-btn ${view === 'positions' && !selectedNursery && !selectedPosition ? 'active' : ''}`} 
             onClick={() => { setView('positions'); setSelectedNursery(null); setSelectedPosition(null); }}
           >
             Openings

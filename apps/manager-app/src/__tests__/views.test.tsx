@@ -40,6 +40,8 @@ describe('Manager Views Snapshots', () => {
         <NurseriesView 
           nurseries={mockNurseries} 
           positions={mockPositions} 
+          applications={mockApplications}
+          onSelectNursery={() => {}}
         />
       ),
     },
@@ -49,6 +51,8 @@ describe('Manager Views Snapshots', () => {
         <OpeningsView 
           positions={mockPositions} 
           nurseries={mockNurseries} 
+          applications={mockApplications}
+          onSelectPosition={() => {}}
         />
       ),
     },
