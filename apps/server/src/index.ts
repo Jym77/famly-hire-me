@@ -1,7 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import path from 'path';
-import positionsRouter from './routes/positions';
+import positionsRouter from './routes/positions.js';
 
 dotenv.config({ path: path.resolve(process.cwd(), '../../.env') });
 
