@@ -11,5 +11,8 @@
     "dev:manager": "yarn workspace manager-app dev",
     "dev:server": "yarn workspace server dev",
     "build": "yarn workspaces foreach --all --topological run build"
+  },
+  "dependencies": {
+    "dotenv": "^17.4.2"
   }
 }

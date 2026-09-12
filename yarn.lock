@@ -910,6 +910,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"dotenv@npm:^17.4.2":
+  version: 17.4.2
+  resolution: "dotenv@npm:17.4.2"
+  checksum: 10c0/164f8e77a646c8446867d5b588d26ea6005c8ea7c5eb41cf926f6113d23f2191355f6e0cfd95ea9bab98394a5b0a3f1e51a8399711b666fe55cc7b0bd745f942
+  languageName: node
+  linkType: hard
+
 "dunder-proto@npm:^1.0.1":
   version: 1.0.1
   resolution: "dunder-proto@npm:1.0.1"
@@ -1025,6 +1032,8 @@ __metadata:
 "famly-hire-me@workspace:.":
   version: 0.0.0-use.local
   resolution: "famly-hire-me@workspace:."
+  dependencies:
+    dotenv: "npm:^17.4.2"
   languageName: unknown
   linkType: soft
 
@@ -1932,6 +1941,7 @@ __metadata:
     "@types/express": "npm:^5.0.6"
     "@types/node": "npm:^24.13.3"
     db: "workspace:^"
+    dotenv: "npm:^17.4.2"
     express: "npm:^5.2.1"
     nodemon: "npm:^3.1.14"
     ts-node: "npm:^10.9.2"
