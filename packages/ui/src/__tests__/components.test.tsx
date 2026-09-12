@@ -1,8 +1,8 @@
 import { render } from '@testing-library/react';
 import { describe, it, expect } from 'vitest';
-import { Badge } from '../Badge';
-import { NurseryCard } from '../NurseryCard';
-import { PositionCard } from '../PositionCard';
+import { Badge } from '../Badge.js';
+import { NurseryCard } from '../NurseryCard.js';
+import { PositionCard } from '../PositionCard.js';
 
 const setWindowWidth = (width: number) => {
   Object.defineProperty(window, 'innerWidth', {

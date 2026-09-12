@@ -1,5 +1,5 @@
 import React from 'react';
-import { Badge } from './Badge';
+import { Badge } from './Badge.js';
 
 interface Nursery {
   id: number;

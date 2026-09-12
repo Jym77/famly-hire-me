@@ -23,8 +23,8 @@ export function filterNurseries(
   positions: Position[],
   applications: Application[],
   searchTerm: string,
-  vacancyFilter: 'all' | 'has' | 'none',
-  appFilter: 'all' | 'has' | 'none'
+  vacancyFilter: 'all' | 'has' | 'none' = 'all',
+  appFilter: 'all' | 'has' | 'none' = 'all'
 ): Nursery[] {
   return nurseries.filter(nursery => {
     const nurseryPositions = positions.filter(p => p.nursery_id === nursery.id);
