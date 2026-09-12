@@ -1,0 +1,339 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Views Snapshots > should match snapshot for ApplicationView 1`] = `
+<DocumentFragment>
+  <div
+    class="application-view"
+  >
+    <button
+      class="btn-back"
+    >
+      ← Back
+    </button>
+    <h2
+      style="margin: 0px 0px 10px;"
+    >
+      Apply for Lead Educator
+    </h2>
+    <form
+      class="apply-form"
+    >
+      <div
+        class="form-group"
+      >
+        <label
+          for="applicantData"
+        >
+          Your Contact Info (Name, Email, Phone)
+        </label>
+        <textarea
+          id="applicantData"
+          name="applicantData"
+          placeholder="e.g. Jane Doe, jane@example.com, 555-0123"
+          required=""
+        />
+      </div>
+      <button
+        class="btn-submit"
+        type="submit"
+      >
+        Submit Application
+      </button>
+    </form>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Views Snapshots > should match snapshot for NurseriesView 1`] = `
+<DocumentFragment>
+  <div>
+    <div
+      class="view-filters"
+    >
+      <div
+        class="filter-group"
+      >
+        <label
+          for="nursery-search"
+        >
+          Search
+        </label>
+        <input
+          id="nursery-search"
+          placeholder="Search nurseries or roles..."
+          type="text"
+          value=""
+        />
+      </div>
+      <div
+        class="filter-group"
+      >
+        <label>
+          Vacancy
+        </label>
+        <div
+          class="radio-group"
+        >
+          <label>
+            <input
+              checked=""
+              name="vacancy"
+              type="radio"
+              value="all"
+            />
+             All
+          </label>
+          <label>
+            <input
+              name="vacancy"
+              type="radio"
+              value="has"
+            />
+             Has Openings
+          </label>
+          <label>
+            <input
+              name="vacancy"
+              type="radio"
+              value="none"
+            />
+             No Openings
+          </label>
+        </div>
+      </div>
+    </div>
+    <div
+      class="positions-grid"
+    >
+      <div
+        class="position-card"
+      >
+        <h3>
+          Sunnyside Daycare
+        </h3>
+        <p>
+          ID: 1
+        </p>
+        <span
+          class="badge open"
+        >
+          Has Openings
+        </span>
+      </div>
+      <div
+        class="position-card"
+      >
+        <h3>
+          Green Garden Preschool
+        </h3>
+        <p>
+          ID: 2
+        </p>
+        <span
+          class="badge open"
+        >
+          Has Openings
+        </span>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Views Snapshots > should match snapshot for NurseryDetailView 1`] = `
+<DocumentFragment>
+  <div
+    class="application-view"
+  >
+    <button
+      class="btn-back"
+    >
+      ← Back to Nurseries
+    </button>
+    <h2
+      style="margin: 0px 0px 10px;"
+    >
+      Sunnyside Daycare
+    </h2>
+    <p
+      style="color: rgb(102, 102, 102); margin-bottom: 20px;"
+    >
+      Details for nursery 1
+    </p>
+    <div
+      class="nursery-positions"
+    >
+      <h3
+        style="font-size: 1.2rem; margin-bottom: 15px;"
+      >
+        Open Positions
+      </h3>
+      <div
+        class="positions-grid"
+        style="grid-template-columns: 1fr; margin-top: 10px;"
+      >
+        <div
+          class="position-card"
+        >
+          <h3
+            style="margin: 0px 0px 10px;"
+          >
+            Lead Educator
+          </h3>
+          <div
+            style="display: flex; justify-content: space-between; align-items: center; margin-top: auto; gap: 10px;"
+          >
+            <span
+              class="badge open"
+            >
+              open
+            </span>
+            <button
+              class="btn-primary"
+            >
+              Apply
+            </button>
+          </div>
+        </div>
+        <div
+          class="position-card"
+        >
+          <h3
+            style="margin: 0px 0px 10px;"
+          >
+            Assistant Teacher
+          </h3>
+          <div
+            style="display: flex; justify-content: space-between; align-items: center; margin-top: auto; gap: 10px;"
+          >
+            <span
+              class="badge open"
+            >
+              open
+            </span>
+            <button
+              class="btn-primary"
+            >
+              Apply
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Views Snapshots > should match snapshot for PositionsView 1`] = `
+<DocumentFragment>
+  <div>
+    <div
+      class="view-filters"
+    >
+      <div
+        class="filter-group"
+      >
+        <label
+          for="position-search"
+        >
+          Search
+        </label>
+        <input
+          id="position-search"
+          placeholder="Search roles or nurseries..."
+          type="text"
+          value=""
+        />
+      </div>
+    </div>
+    <div
+      class="positions-grid"
+    >
+      <div
+        class="position-card"
+      >
+        <h3
+          style="margin: 0px 0px 10px;"
+        >
+          Lead Educator
+        </h3>
+        <p
+          style="margin: 0px 0px 15px;"
+        >
+          Sunnyside Daycare
+        </p>
+        <div
+          style="display: flex; justify-content: space-between; align-items: center; margin-top: auto; gap: 10px;"
+        >
+          <span
+            class="badge open"
+          >
+            open
+          </span>
+          <button
+            class="btn-primary"
+          >
+            View Details
+          </button>
+        </div>
+      </div>
+      <div
+        class="position-card"
+      >
+        <h3
+          style="margin: 0px 0px 10px;"
+        >
+          Assistant Teacher
+        </h3>
+        <p
+          style="margin: 0px 0px 15px;"
+        >
+          Sunnyside Daycare
+        </p>
+        <div
+          style="display: flex; justify-content: space-between; align-items: center; margin-top: auto; gap: 10px;"
+        >
+          <span
+            class="badge open"
+          >
+            open
+          </span>
+          <button
+            class="btn-primary"
+          >
+            View Details
+          </button>
+        </div>
+      </div>
+      <div
+        class="position-card"
+      >
+        <h3
+          style="margin: 0px 0px 10px;"
+        >
+          Center Manager
+        </h3>
+        <p
+          style="margin: 0px 0px 15px;"
+        >
+          Green Garden Preschool
+        </p>
+        <div
+          style="display: flex; justify-content: space-between; align-items: center; margin-top: auto; gap: 10px;"
+        >
+          <span
+            class="badge closed"
+          >
+            closed
+          </span>
+          <button
+            class="btn-primary"
+          >
+            View Details
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

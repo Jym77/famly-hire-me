@@ -1,122 +1,146 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.css'
+import { useState, useEffect } from 'react';
+import { NurseriesView } from './views/NurseriesView';
+import { NurseryDetailView } from './views/NurseryDetailView';
+import { PositionsView } from './views/PositionsView';
+import { ApplicationView } from './views/ApplicationView';
+import './App.css';
 
-function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
-
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+interface Position {
+  id: number;
+  nursery_id: number;
+  data: string; // Job Title
+  status: string;
 }
 
-export default App
+interface Nursery {
+  id: number;
+  data: string;
+}
+
+function App() {
+  const [view, setView] = useState<'nurseries' | 'positions'>('nurseries');
+  const [nurseries, setNurseries] = useState<Nursery[]>([]);
+  const [positions, setPositions] = useState<Position[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const [selectedPosition, setSelectedPosition] = useState<Position | null>(null);
+  const [selectedNursery, setSelectedNursery] = useState<Nursery | null>(null);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    try {
+      setLoading(true);
+      const [nursRes, posRes] = await Promise.all([
+        fetch('http://localhost:3000/nurseries'),
+        fetch('http://localhost:3000/positions')
+      ]);
+      
+      if (!nursRes.ok || !posRes.ok) throw new Error('Failed to fetch data');
+      
+      const nursData = await nursRes.json();
+      const posData = await posRes.json();
+      
+      setNurseries(nursData);
+      setPositions(posData);
+    } catch (err: any) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleApply = async (applicantData: string) => {
+    try {
+      const appRes = await fetch('http://localhost:3000/applicants', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ data: applicantData }),
+      });
+      const applicant = await appRes.json();
+
+      await fetch('http://localhost:3000/applications', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          position_id: selectedPosition?.id,
+          applicant_id: applicant.id,
+          data: 'Applied via portal',
+        }),
+      });
+
+      alert('Application submitted successfully!');
+      setSelectedPosition(null);
+      setSelectedNursery(null);
+    } catch (err: any) {
+      alert('Error submitting application: ' + err.message);
+    }
+  };
+
+  return (
+    <div className="portal-container">
+      <header className="portal-header">
+        <h1>Famly Hire Me</h1>
+        <p>Find your next great role in early years education</p>
+        <nav className="portal-nav">
+          <button 
+            className={`nav-btn ${view === 'nurseries' ? 'active' : ''}`} 
+            onClick={() => { setView('nurseries'); setSelectedNursery(null); setSelectedPosition(null); }}
+          >
+            Nurseries
+          </button>
+          <button 
+            className={`nav-btn ${view === 'positions' ? 'active' : ''}`} 
+            onClick={() => { setView('positions'); setSelectedNursery(null); setSelectedPosition(null); }}
+          >
+            Openings
+          </button>
+        </nav>
+      </header>
+
+      <main className="portal-main">
+        {loading && <div className="status-msg">Loading...</div>}
+        {error && <div className="status-msg error">{error}</div>}
+        
+        {!loading && !error && (
+          <>
+            {selectedPosition ? (
+              <ApplicationView 
+                position={selectedPosition} 
+                onBack={() => setSelectedPosition(null)} 
+                onSubmit={handleApply} 
+              />
+            ) : selectedNursery ? (
+              <NurseryDetailView 
+                nursery={selectedNursery} 
+                positions={positions} 
+                onBack={() => setSelectedNursery(null)} 
+                onSelectPosition={setSelectedPosition} 
+              />
+            ) : view === 'nurseries' ? (
+              <NurseriesView 
+                nurseries={nurseries} 
+                positions={positions} 
+                onSelectNursery={setSelectedNursery} 
+              />
+            ) : (
+              <PositionsView 
+                positions={positions} 
+                nurseries={nurseries} 
+                onSelectPosition={setSelectedPosition} 
+              />
+            )}
+          </>
+        )}
+      </main>
+
+      <footer className="portal-footer">
+        <p>&copy; 2026 Famly Hire Me Portal</p>
+      </footer>
+    </div>
+  );
+}
+
+export default App;

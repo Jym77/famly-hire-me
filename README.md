@@ -10,6 +10,9 @@ $ yarn dev # starts all three apps
 $ yarn test
 ```
 
+By default, the applicants portal runs on `localhost:5172` and the managers one on `localhost:5173`, with the backend
+listening to `localhost:3000`.
+
 ## Tooling
 
 Witten using [Ollama](https://ollama.com/), [Pi agent](https://docs.ollama.com/integrations/pi), and [gemma4:31b-cloud model](https://ollama.com/library/gemma4:31b).
