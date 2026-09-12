@@ -1,0 +1,345 @@
+openapi: 3.0.0
+info:
+  title: Famly Hire Me API
+  description: API for a many-to-many job portal for nurseries.
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000
+    description: Local server
+
+components:
+  securitySchemes:
+    AdminToken:
+      type: apiKey
+      in: query
+      name: token
+      description: Admin token required for protected routes.
+
+  schemas:
+    Nursery:
+      type: object
+      properties:
+        id:
+          type: integer
+        data:
+          type: string
+          description: Nursery name
+    Position:
+      type: object
+      properties:
+        id:
+          type: integer
+        nursery_id:
+          type: integer
+        data:
+          type: string
+          description: Job title
+        status:
+          type: string
+          example: open
+    
+    Applicant:
+      type: object
+      properties:
+        id:
+          type: integer
+        data:
+          type: string
+          description: Contact information
+    
+    Application:
+      type: object
+      properties:
+        id:
+          type: integer
+        position_id:
+          type: integer
+        applicant_id:
+          type: integer
+        data:
+          type: string
+        status:
+          type: string
+          example: received
+
+paths:
+  /nurseries:
+    get:
+      summary: List all nurseries
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Nursery'
+    
+  /nurseries/{id}:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+    get:
+      summary: Get a specific nursery
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Nursery'
+        '404':
+          description: Not found
+
+  /positions:
+    get:
+      summary: List all positions
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Position'
+    post:
+      summary: Create a new position
+      security:
+        - AdminToken: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                nursery_id:
+                  type: integer
+                data:
+                  type: string
+      responses:
+        '201':
+          description: Created
+        '400':
+          description: Invalid input
+        '401':
+          description: Unauthorized
+
+  /positions/{id}:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+    get:
+      summary: Get a specific position
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Position'
+        '404':
+          description: Not found
+    patch:
+      summary: Update position status
+      security:
+        - AdminToken: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                status:
+                  type: string
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Invalid input
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+    delete:
+      summary: Delete a position
+      security:
+        - AdminToken: []
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+
+  /applicants:
+    get:
+      summary: List all applicants
+      security:
+        - AdminToken: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Applicant'
+        '401':
+          description: Unauthorized
+    post:
+      summary: Register a new applicant
+      responses:
+        '201':
+          description: Created
+        '400':
+          description: Invalid input
+    patch:
+      summary: Update applicant data
+      security:
+        - AdminToken: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                data:
+                  type: string
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Invalid input
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+    delete:
+      summary: Delete an applicant
+      security:
+        - AdminToken: []
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+
+  /applicants/{id}:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+    get:
+      summary: Get a specific applicant
+      security:
+        - AdminToken: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Applicant'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+
+  /applications:
+    get:
+      summary: List all applications
+      security:
+        - AdminToken: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Application'
+        '401':
+          description: Unauthorized
+    post:
+      summary: Create a new application
+      responses:
+        '201':
+          description: Created
+        '400':
+          description: Invalid input
+    patch:
+      summary: Update application data or status
+      security:
+        - AdminToken: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                data:
+                  type: string
+                status:
+                  type: string
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Invalid input
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+    delete:
+      summary: Delete an application
+      security:
+        - AdminToken: []
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+
+  /applications/{id}:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+    get:
+      summary: Get a specific application
+      security:
+        - AdminToken: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Application'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
