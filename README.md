@@ -1,32 +1,34 @@
-# React + TypeScript + Vite
+# Hiring portal prototype
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+## Run it
 
-Currently, two official plugins are available:
+```bash
+$ yarn install
+$ yarn build
+$ yarn dev # starts all three apps
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+$ yarn test
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## Tooling
+
+Witten using [Ollama](https://ollama.com/), [Pi agent](https://docs.ollama.com/integrations/pi), and [gemma4:31b-cloud model](https://ollama.com/library/gemma4:31b).
+
+## Structure
+
+The project consists in two frontends: one for job applicants and one for nursery managers, a shared backend (`server`), 
+and a mock database.
+
+The frontend is split in two because the applicants one is publicly available while the manager one is only for logged 
+users. The server handles the database connection and requests. The database is a mock that is recreated every time and
+not persisted in any way, as this is just a prototype.
+
+## Database
+
+The database is assumed to be internal to one group. It contains tables for nurseries, positions, applicants and 
+applications. The exact schemas are very light, mostly containing a dummy "data" column that is meant to represent all
+the relevant data in possibly several actual columns (for example, a nursery would have a name and address, an applicant
+would have name, qualification, CV, …)
+
+The positions are assumed to be specific to one nursery (rather than say "any nursery in city X"), which simplifies the 
+schema. Otherwise, a one-to-many mapping table would be needed between positions and nurseries.

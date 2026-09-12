@@ -7,12 +7,17 @@
     "packages/*"
   ],
   "scripts": {
+    "dev": "concurrently \"yarn dev:applicant\" \"yarn dev:manager\" \"yarn dev:server\"",
     "dev:applicant": "yarn workspace applicant-app dev",
     "dev:manager": "yarn workspace manager-app dev",
     "dev:server": "yarn workspace server dev",
-    "build": "yarn workspaces foreach --all --topological run build"
+    "build": "yarn workspaces foreach --all --topological run build",
+    "test": "yarn workspaces foreach --all run test"
   },
   "dependencies": {
     "dotenv": "^17.4.2"
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.5"
   }
 }
