@@ -31,11 +31,15 @@ exports[`UI Components Snapshots > NurseryCard > should match snapshot for deskt
     <p>
       ID: 1
     </p>
-    <span
-      class="badge open"
+    <div
+      style="display: flex; gap: 5px; flex-wrap: wrap; margin-bottom: 15px;"
     >
-      Has Openings
-    </span>
+      <span
+        class="badge open"
+      >
+        Has Openings
+      </span>
+    </div>
   </div>
 </DocumentFragment>
 `;
@@ -51,11 +55,15 @@ exports[`UI Components Snapshots > NurseryCard > should match snapshot for mobil
     <p>
       ID: 1
     </p>
-    <span
-      class="badge open"
+    <div
+      style="display: flex; gap: 5px; flex-wrap: wrap; margin-bottom: 15px;"
     >
-      Has Openings
-    </span>
+      <span
+        class="badge open"
+      >
+        Has Openings
+      </span>
+    </div>
   </div>
 </DocumentFragment>
 `;
@@ -78,11 +86,15 @@ exports[`UI Components Snapshots > PositionCard > should match snapshot for desk
     <div
       style="display: flex; justify-content: space-between; align-items: center; margin-top: auto; gap: 10px;"
     >
-      <span
-        class="badge open"
+      <div
+        style="display: flex; gap: 5px; flex-wrap: wrap;"
       >
-        open
-      </span>
+        <span
+          class="badge open"
+        >
+          open
+        </span>
+      </div>
       <button
         class="btn-primary"
       >
@@ -111,74 +123,15 @@ exports[`UI Components Snapshots > PositionCard > should match snapshot for mobi
     <div
       style="display: flex; justify-content: space-between; align-items: center; margin-top: auto; gap: 10px;"
     >
-      <span
-        class="badge open"
+      <div
+        style="display: flex; gap: 5px; flex-wrap: wrap;"
       >
-        open
-      </span>
-      <button
-        class="btn-primary"
-      >
-        Apply
-      </button>
-    </div>
-  </div>
-</DocumentFragment>
-`;
-
-exports[`UI Components Snapshots > should match snapshot for Badge 1`] = `
-<DocumentFragment>
-  <span
-    class="badge open"
-  >
-    Open
-  </span>
-</DocumentFragment>
-`;
-
-exports[`UI Components Snapshots > should match snapshot for NurseryCard 1`] = `
-<DocumentFragment>
-  <div
-    class="position-card"
-  >
-    <h3>
-      Test Nursery
-    </h3>
-    <p>
-      ID: 1
-    </p>
-    <span
-      class="badge open"
-    >
-      Has Openings
-    </span>
-  </div>
-</DocumentFragment>
-`;
-
-exports[`UI Components Snapshots > should match snapshot for PositionCard 1`] = `
-<DocumentFragment>
-  <div
-    class="position-card"
-  >
-    <h3
-      style="margin: 0px 0px 10px;"
-    >
-      Lead Educator
-    </h3>
-    <p
-      style="margin: 0px 0px 15px;"
-    >
-      Test Nursery
-    </p>
-    <div
-      style="display: flex; justify-content: space-between; align-items: center; margin-top: auto; gap: 10px;"
-    >
-      <span
-        class="badge open"
-      >
-        open
-      </span>
+        <span
+          class="badge open"
+        >
+          open
+        </span>
+      </div>
       <button
         class="btn-primary"
       >
