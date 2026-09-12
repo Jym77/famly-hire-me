@@ -12,7 +12,9 @@
   },
   "dependencies": {
     "react": "^19.3.0",
-    "react-dom": "^19.3.0"
+    "react-dom": "^19.3.0",
+    "ui": "workspace:*",
+    "utils": "workspace:*"
   },
   "devDependencies": {
     "@testing-library/dom": "^10.4.1",

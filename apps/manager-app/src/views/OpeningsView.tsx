@@ -2,13 +2,12 @@ import React, { useState } from 'react';
 import { PositionCard } from 'ui';
 import { filterPositions, type Position, type Nursery } from 'utils';
 
-interface PositionsViewProps {
+interface OpeningsViewProps {
   positions: Position[];
   nurseries: Nursery[];
-  onSelectPosition: (position: Position) => void;
 }
 
-export const PositionsView: React.FC<PositionsViewProps> = ({ positions, nurseries, onSelectPosition }) => {
+export const OpeningsView: React.FC<OpeningsViewProps> = ({ positions, nurseries }) => {
   const [searchTerm, setSearchTerm] = useState('');
 
   const filteredPositions = filterPositions(positions, nurseries, searchTerm);
@@ -17,9 +16,9 @@ export const PositionsView: React.FC<PositionsViewProps> = ({ positions, nurseri
     <div>
       <div className="view-filters">
         <div className="filter-group">
-          <label htmlFor="position-search">Search</label>
+          <label htmlFor="manager-position-search">Search</label>
           <input 
-            id="position-search" 
+            id="manager-position-search" 
             type="text" 
             value={searchTerm} 
             onChange={(e) => setSearchTerm(e.target.value)} 
@@ -36,7 +35,8 @@ export const PositionsView: React.FC<PositionsViewProps> = ({ positions, nurseri
               key={pos.id} 
               position={pos} 
               nurseryName={nursery?.data} 
-              onClick={() => onSelectPosition(pos)} 
+              onClick={() => {}} 
+              buttonText="Manage"
             />
           );
         })}

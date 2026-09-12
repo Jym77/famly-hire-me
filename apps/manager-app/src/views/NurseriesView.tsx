@@ -5,10 +5,9 @@ import { filterNurseries, type Nursery, type Position } from 'utils';
 interface NurseriesViewProps {
   nurseries: Nursery[];
   positions: Position[];
-  onSelectNursery: (nursery: Nursery) => void;
 }
 
-export const NurseriesView: React.FC<NurseriesViewProps> = ({ nurseries, positions, onSelectNursery }) => {
+export const NurseriesView: React.FC<NurseriesViewProps> = ({ nurseries, positions }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [vacancyFilter, setVacancyFilter] = useState<'all' | 'has' | 'none'>('all');
 
@@ -18,9 +17,9 @@ export const NurseriesView: React.FC<NurseriesViewProps> = ({ nurseries, positio
     <div>
       <div className="view-filters">
         <div className="filter-group">
-          <label htmlFor="nursery-search">Search</label>
+          <label htmlFor="manager-nursery-search">Search</label>
           <input 
-            id="nursery-search" 
+            id="manager-nursery-search" 
             type="text" 
             value={searchTerm} 
             onChange={(e) => setSearchTerm(e.target.value)} 
@@ -33,7 +32,7 @@ export const NurseriesView: React.FC<NurseriesViewProps> = ({ nurseries, positio
             <label>
               <input 
                 type="radio" 
-                name="vacancy" 
+                name="manager-vacancy" 
                 value="all" 
                 checked={vacancyFilter === 'all'} 
                 onChange={() => setVacancyFilter('all')} 
@@ -42,7 +41,7 @@ export const NurseriesView: React.FC<NurseriesViewProps> = ({ nurseries, positio
             <label>
               <input 
                 type="radio" 
-                name="vacancy" 
+                name="manager-vacancy" 
                 value="has" 
                 checked={vacancyFilter === 'has'} 
                 onChange={() => setVacancyFilter('has')} 
@@ -51,7 +50,7 @@ export const NurseriesView: React.FC<NurseriesViewProps> = ({ nurseries, positio
             <label>
               <input 
                 type="radio" 
-                name="vacancy" 
+                name="manager-vacancy" 
                 value="none" 
                 checked={vacancyFilter === 'none'} 
                 onChange={() => setVacancyFilter('none')} 
@@ -67,7 +66,6 @@ export const NurseriesView: React.FC<NurseriesViewProps> = ({ nurseries, positio
             key={nursery.id} 
             nursery={nursery} 
             hasPositions={positions.some(p => p.nursery_id === nursery.id)} 
-            onClick={() => onSelectNursery(nursery)}
           />
         ))}
       </div>

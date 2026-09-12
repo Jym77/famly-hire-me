@@ -1,9 +1,9 @@
 import { render } from '@testing-library/react';
 import { describe, it, expect } from 'vitest';
 import { NurseriesView } from '../views/NurseriesView';
-import { NurseryDetailView } from '../views/NurseryDetailView';
-import { PositionsView } from '../views/PositionsView';
-import { ApplicationView } from '../views/ApplicationView';
+import { OpeningsView } from '../views/OpeningsView';
+import { ApplicantsView } from '../views/ApplicantsView';
+import { ApplicationsView } from '../views/ApplicationsView';
 
 const setWindowWidth = (width: number) => {
   Object.defineProperty(window, 'innerWidth', {
@@ -20,11 +20,19 @@ const mockNurseries = [
 
 const mockPositions = [
   { id: 1, nursery_id: 1, data: 'Lead Educator', status: 'open' },
-  { id: 2, nursery_id: 1, data: 'Assistant Teacher', status: 'open' },
-  { id: 3, nursery_id: 2, data: 'Center Manager', status: 'closed' },
+  { id: 2, nursery_id: 2, data: 'Center Manager', status: 'open' },
 ];
 
-describe('Views Snapshots', () => {
+const mockApplicants = [
+  { id: 1, data: 'Alice Smith (alice@email.com)' },
+  { id: 2, data: 'Bob Jones (bob@email.com)' },
+];
+
+const mockApplications = [
+  { id: 1, position_id: 1, applicant_id: 1, data: 'Applied via portal', status: 'received' },
+];
+
+describe('Manager Views Snapshots', () => {
   const views = [
     {
       name: 'NurseriesView',
@@ -32,38 +40,31 @@ describe('Views Snapshots', () => {
         <NurseriesView 
           nurseries={mockNurseries} 
           positions={mockPositions} 
-          onSelectNursery={() => {}} 
         />
       ),
     },
     {
-      name: 'NurseryDetailView',
+      name: 'OpeningsView',
       render: () => render(
-        <NurseryDetailView 
-          nursery={mockNurseries[0]} 
-          positions={mockPositions} 
-          onBack={() => {}} 
-          onSelectPosition={() => {}} 
-        />
-      ),
-    },
-    {
-      name: 'PositionsView',
-      render: () => render(
-        <PositionsView 
+        <OpeningsView 
           positions={mockPositions} 
           nurseries={mockNurseries} 
-          onSelectPosition={() => {}} 
         />
       ),
     },
     {
-      name: 'ApplicationView',
+      name: 'ApplicantsView',
       render: () => render(
-        <ApplicationView 
-          position={mockPositions[0]} 
-          onBack={() => {}} 
-          onSubmit={() => Promise.resolve()} 
+        <ApplicantsView 
+          applicants={mockApplicants} 
+        />
+      ),
+    },
+    {
+      name: 'ApplicationsView',
+      render: () => render(
+        <ApplicationsView 
+          applications={mockApplications} 
         />
       ),
     },

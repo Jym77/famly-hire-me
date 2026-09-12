@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react';
 import { describe, it, expect } from 'vitest';
-import { Badge } from '../components/Badge';
-import { NurseryCard } from '../components/NurseryCard';
+import { Badge } from 'ui';
+import { NurseryCard } from 'ui';
 
 // Simple mock for snapshots as we don't have a full environment setup for matchSnapshot
 // In a real project, we would use vitest's expect(result).toMatchSnapshot()

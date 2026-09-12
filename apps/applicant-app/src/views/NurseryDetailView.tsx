@@ -1,5 +1,5 @@
 import React from 'react';
-import { PositionCard } from '../components/PositionCard';
+import { PositionCard } from 'ui';
 
 interface Position {
   id: number;

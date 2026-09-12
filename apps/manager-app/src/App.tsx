@@ -1,122 +1,130 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.css'
+import { useState, useEffect } from 'react';
+import { NurseriesView } from './views/NurseriesView';
+import { OpeningsView } from './views/OpeningsView';
+import { ApplicantsView } from './views/ApplicantsView';
+import { ApplicationsView } from './views/ApplicationsView';
+import { apiFetch } from './utils/api';
+import './App.css';
 
-function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
-
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+interface Position {
+  id: number;
+  nursery_id: number;
+  data: string;
+  status: string;
 }
 
-export default App
+interface Nursery {
+  id: number;
+  data: string;
+}
+
+interface Applicant {
+  id: number;
+  data: string;
+}
+
+interface Application {
+  id: number;
+  position_id: number;
+  applicant_id: number;
+  data: string;
+  status: string;
+}
+
+function App() {
+  const [view, setView] = useState<'nurseries' | 'openings' | 'applicants' | 'applications'>('nurseries');
+  const [nurseries, setNurseries] = useState<Nursery[]>([]);
+  const [positions, setPositions] = useState<Position[]>([]);
+  const [applicants, setApplicants] = useState<Applicant[]>([]);
+  const [applications, setApplications] = useState<Application[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    try {
+      setLoading(true);
+      const [nursRes, posRes, appRes, applicationsRes] = await Promise.all([
+        apiFetch('/nurseries'),
+        apiFetch('/positions'),
+        apiFetch('/applicants'),
+        apiFetch('/applications'),
+      ]);
+      
+      setNurseries(await nursRes.json());
+      setPositions(await posRes.json());
+      setApplicants(await appRes.json());
+      setApplications(await applicationsRes.json());
+    } catch (err: any) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div className="portal-container">
+      <header className="portal-header">
+        <h1>Famly Manager</h1>
+        <p>Manage your nurseries and hire the best talent</p>
+        <nav className="portal-nav">
+          <button 
+            className={`nav-btn ${view === 'nurseries' ? 'active' : ''}`} 
+            onClick={() => setView('nurseries')}
+          >
+            Nurseries
+          </button>
+          <button 
+            className={`nav-btn ${view === 'openings' ? 'active' : ''}`} 
+            onClick={() => setView('openings')}
+          >
+            Openings
+          </button>
+          <button 
+            className={`nav-btn ${view === 'applicants' ? 'active' : ''}`} 
+            onClick={() => setView('applicants')}
+          >
+            Applicants
+          </button>
+          <button 
+            className={`nav-btn ${view === 'applications' ? 'active' : ''}`} 
+            onClick={() => setView('applications')}
+          >
+            Applications
+          </button>
+        </nav>
+      </header>
+
+      <main className="portal-main">
+        {loading && <div className="status-msg">Loading data...</div>}
+        {error && <div className="status-msg error">{error}</div>}
+        
+        {!loading && !error && (
+          <>
+            {view === 'nurseries' && (
+              <NurseriesView nurseries={nurseries} positions={positions} />
+            )}
+            {view === 'openings' && (
+              <OpeningsView positions={positions} nurseries={nurseries} />
+            )}
+            {view === 'applicants' && (
+              <ApplicantsView applicants={applicants} />
+            )}
+            {view === 'applications' && (
+              <ApplicationsView applications={applications} />
+            )}
+          </>
+        )}
+      </main>
+
+      <footer className="portal-footer">
+        <p>&copy; 2026 Famly Manager Portal</p>
+      </footer>
+    </div>
+  );
+}
+
+export default App;

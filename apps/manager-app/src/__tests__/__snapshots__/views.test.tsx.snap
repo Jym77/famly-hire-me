@@ -1,0 +1,889 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Manager Views Snapshots > ApplicantsView > should match snapshot for desktop > desktop 1`] = `
+<DocumentFragment>
+  <div
+    class="application-view"
+  >
+    <h2>
+      All Applicants
+    </h2>
+    <table
+      style="width: 100%; border-collapse: collapse; margin-top: 20px;"
+    >
+      <thead>
+        <tr
+          style="text-align: left; border-bottom: 2px solid var(--border-color);"
+        >
+          <th
+            style="padding: 10px;"
+          >
+            ID
+          </th>
+          <th
+            style="padding: 10px;"
+          >
+            Contact Info
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          style="border-bottom: 1px solid var(--border-color);"
+        >
+          <td
+            style="padding: 10px;"
+          >
+            1
+          </td>
+          <td
+            style="padding: 10px;"
+          >
+            Alice Smith (alice@email.com)
+          </td>
+        </tr>
+        <tr
+          style="border-bottom: 1px solid var(--border-color);"
+        >
+          <td
+            style="padding: 10px;"
+          >
+            2
+          </td>
+          <td
+            style="padding: 10px;"
+          >
+            Bob Jones (bob@email.com)
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Manager Views Snapshots > ApplicantsView > should match snapshot for mobile > mobile 1`] = `
+<DocumentFragment>
+  <div
+    class="application-view"
+  >
+    <h2>
+      All Applicants
+    </h2>
+    <table
+      style="width: 100%; border-collapse: collapse; margin-top: 20px;"
+    >
+      <thead>
+        <tr
+          style="text-align: left; border-bottom: 2px solid var(--border-color);"
+        >
+          <th
+            style="padding: 10px;"
+          >
+            ID
+          </th>
+          <th
+            style="padding: 10px;"
+          >
+            Contact Info
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          style="border-bottom: 1px solid var(--border-color);"
+        >
+          <td
+            style="padding: 10px;"
+          >
+            1
+          </td>
+          <td
+            style="padding: 10px;"
+          >
+            Alice Smith (alice@email.com)
+          </td>
+        </tr>
+        <tr
+          style="border-bottom: 1px solid var(--border-color);"
+        >
+          <td
+            style="padding: 10px;"
+          >
+            2
+          </td>
+          <td
+            style="padding: 10px;"
+          >
+            Bob Jones (bob@email.com)
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Manager Views Snapshots > ApplicationsView > should match snapshot for desktop > desktop 1`] = `
+<DocumentFragment>
+  <div
+    class="application-view"
+  >
+    <h2>
+      All Applications
+    </h2>
+    <table
+      style="width: 100%; border-collapse: collapse; margin-top: 20px;"
+    >
+      <thead>
+        <tr
+          style="text-align: left; border-bottom: 2px solid var(--border-color);"
+        >
+          <th
+            style="padding: 10px;"
+          >
+            ID
+          </th>
+          <th
+            style="padding: 10px;"
+          >
+            Pos ID
+          </th>
+          <th
+            style="padding: 10px;"
+          >
+            App ID
+          </th>
+          <th
+            style="padding: 10px;"
+          >
+            Status
+          </th>
+          <th
+            style="padding: 10px;"
+          >
+            Details
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          style="border-bottom: 1px solid var(--border-color);"
+        >
+          <td
+            style="padding: 10px;"
+          >
+            1
+          </td>
+          <td
+            style="padding: 10px;"
+          >
+            1
+          </td>
+          <td
+            style="padding: 10px;"
+          >
+            1
+          </td>
+          <td
+            style="padding: 10px;"
+          >
+            received
+          </td>
+          <td
+            style="padding: 10px;"
+          >
+            Applied via portal
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Manager Views Snapshots > ApplicationsView > should match snapshot for mobile > mobile 1`] = `
+<DocumentFragment>
+  <div
+    class="application-view"
+  >
+    <h2>
+      All Applications
+    </h2>
+    <table
+      style="width: 100%; border-collapse: collapse; margin-top: 20px;"
+    >
+      <thead>
+        <tr
+          style="text-align: left; border-bottom: 2px solid var(--border-color);"
+        >
+          <th
+            style="padding: 10px;"
+          >
+            ID
+          </th>
+          <th
+            style="padding: 10px;"
+          >
+            Pos ID
+          </th>
+          <th
+            style="padding: 10px;"
+          >
+            App ID
+          </th>
+          <th
+            style="padding: 10px;"
+          >
+            Status
+          </th>
+          <th
+            style="padding: 10px;"
+          >
+            Details
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          style="border-bottom: 1px solid var(--border-color);"
+        >
+          <td
+            style="padding: 10px;"
+          >
+            1
+          </td>
+          <td
+            style="padding: 10px;"
+          >
+            1
+          </td>
+          <td
+            style="padding: 10px;"
+          >
+            1
+          </td>
+          <td
+            style="padding: 10px;"
+          >
+            received
+          </td>
+          <td
+            style="padding: 10px;"
+          >
+            Applied via portal
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Manager Views Snapshots > NurseriesView > should match snapshot for desktop > desktop 1`] = `
+<DocumentFragment>
+  <div>
+    <div
+      class="view-filters"
+    >
+      <div
+        class="filter-group"
+      >
+        <label
+          for="manager-nursery-search"
+        >
+          Search
+        </label>
+        <input
+          id="manager-nursery-search"
+          placeholder="Search nurseries or roles..."
+          type="text"
+          value=""
+        />
+      </div>
+      <div
+        class="filter-group"
+      >
+        <label>
+          Vacancy
+        </label>
+        <div
+          class="radio-group"
+        >
+          <label>
+            <input
+              checked=""
+              name="manager-vacancy"
+              type="radio"
+              value="all"
+            />
+             All
+          </label>
+          <label>
+            <input
+              name="manager-vacancy"
+              type="radio"
+              value="has"
+            />
+             Has Openings
+          </label>
+          <label>
+            <input
+              name="manager-vacancy"
+              type="radio"
+              value="none"
+            />
+             No Openings
+          </label>
+        </div>
+      </div>
+    </div>
+    <div
+      class="positions-grid"
+    >
+      <div
+        class="position-card"
+      >
+        <h3>
+          Sunnyside Daycare
+        </h3>
+        <p>
+          ID: 1
+        </p>
+        <span
+          class="badge open"
+        >
+          Has Openings
+        </span>
+      </div>
+      <div
+        class="position-card"
+      >
+        <h3>
+          Green Garden Preschool
+        </h3>
+        <p>
+          ID: 2
+        </p>
+        <span
+          class="badge open"
+        >
+          Has Openings
+        </span>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Manager Views Snapshots > NurseriesView > should match snapshot for mobile > mobile 1`] = `
+<DocumentFragment>
+  <div>
+    <div
+      class="view-filters"
+    >
+      <div
+        class="filter-group"
+      >
+        <label
+          for="manager-nursery-search"
+        >
+          Search
+        </label>
+        <input
+          id="manager-nursery-search"
+          placeholder="Search nurseries or roles..."
+          type="text"
+          value=""
+        />
+      </div>
+      <div
+        class="filter-group"
+      >
+        <label>
+          Vacancy
+        </label>
+        <div
+          class="radio-group"
+        >
+          <label>
+            <input
+              checked=""
+              name="manager-vacancy"
+              type="radio"
+              value="all"
+            />
+             All
+          </label>
+          <label>
+            <input
+              name="manager-vacancy"
+              type="radio"
+              value="has"
+            />
+             Has Openings
+          </label>
+          <label>
+            <input
+              name="manager-vacancy"
+              type="radio"
+              value="none"
+            />
+             No Openings
+          </label>
+        </div>
+      </div>
+    </div>
+    <div
+      class="positions-grid"
+    >
+      <div
+        class="position-card"
+      >
+        <h3>
+          Sunnyside Daycare
+        </h3>
+        <p>
+          ID: 1
+        </p>
+        <span
+          class="badge open"
+        >
+          Has Openings
+        </span>
+      </div>
+      <div
+        class="position-card"
+      >
+        <h3>
+          Green Garden Preschool
+        </h3>
+        <p>
+          ID: 2
+        </p>
+        <span
+          class="badge open"
+        >
+          Has Openings
+        </span>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Manager Views Snapshots > OpeningsView > should match snapshot for desktop > desktop 1`] = `
+<DocumentFragment>
+  <div>
+    <div
+      class="view-filters"
+    >
+      <div
+        class="filter-group"
+      >
+        <label
+          for="manager-position-search"
+        >
+          Search
+        </label>
+        <input
+          id="manager-position-search"
+          placeholder="Search roles or nurseries..."
+          type="text"
+          value=""
+        />
+      </div>
+    </div>
+    <div
+      class="positions-grid"
+    >
+      <div
+        class="position-card"
+      >
+        <h3
+          style="margin: 0px 0px 10px;"
+        >
+          Lead Educator
+        </h3>
+        <p
+          style="margin: 0px 0px 15px;"
+        >
+          Sunnyside Daycare
+        </p>
+        <div
+          style="display: flex; justify-content: space-between; align-items: center; margin-top: auto; gap: 10px;"
+        >
+          <span
+            class="badge open"
+          >
+            open
+          </span>
+          <button
+            class="btn-primary"
+          >
+            Manage
+          </button>
+        </div>
+      </div>
+      <div
+        class="position-card"
+      >
+        <h3
+          style="margin: 0px 0px 10px;"
+        >
+          Center Manager
+        </h3>
+        <p
+          style="margin: 0px 0px 15px;"
+        >
+          Green Garden Preschool
+        </p>
+        <div
+          style="display: flex; justify-content: space-between; align-items: center; margin-top: auto; gap: 10px;"
+        >
+          <span
+            class="badge open"
+          >
+            open
+          </span>
+          <button
+            class="btn-primary"
+          >
+            Manage
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Manager Views Snapshots > OpeningsView > should match snapshot for mobile > mobile 1`] = `
+<DocumentFragment>
+  <div>
+    <div
+      class="view-filters"
+    >
+      <div
+        class="filter-group"
+      >
+        <label
+          for="manager-position-search"
+        >
+          Search
+        </label>
+        <input
+          id="manager-position-search"
+          placeholder="Search roles or nurseries..."
+          type="text"
+          value=""
+        />
+      </div>
+    </div>
+    <div
+      class="positions-grid"
+    >
+      <div
+        class="position-card"
+      >
+        <h3
+          style="margin: 0px 0px 10px;"
+        >
+          Lead Educator
+        </h3>
+        <p
+          style="margin: 0px 0px 15px;"
+        >
+          Sunnyside Daycare
+        </p>
+        <div
+          style="display: flex; justify-content: space-between; align-items: center; margin-top: auto; gap: 10px;"
+        >
+          <span
+            class="badge open"
+          >
+            open
+          </span>
+          <button
+            class="btn-primary"
+          >
+            Manage
+          </button>
+        </div>
+      </div>
+      <div
+        class="position-card"
+      >
+        <h3
+          style="margin: 0px 0px 10px;"
+        >
+          Center Manager
+        </h3>
+        <p
+          style="margin: 0px 0px 15px;"
+        >
+          Green Garden Preschool
+        </p>
+        <div
+          style="display: flex; justify-content: space-between; align-items: center; margin-top: auto; gap: 10px;"
+        >
+          <span
+            class="badge open"
+          >
+            open
+          </span>
+          <button
+            class="btn-primary"
+          >
+            Manage
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Manager Views Snapshots > should match snapshot for ApplicantsView 1`] = `
+<DocumentFragment>
+  <div
+    class="application-view"
+  >
+    <h2>
+      All Applicants
+    </h2>
+    <table
+      style="width: 100%; border-collapse: collapse; margin-top: 20px;"
+    >
+      <thead>
+        <tr
+          style="text-align: left; border-bottom: 2px solid var(--border-color);"
+        >
+          <th
+            style="padding: 10px;"
+          >
+            ID
+          </th>
+          <th
+            style="padding: 10px;"
+          >
+            Contact Info
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          style="border-bottom: 1px solid var(--border-color);"
+        >
+          <td
+            style="padding: 10px;"
+          >
+            1
+          </td>
+          <td
+            style="padding: 10px;"
+          >
+            Alice Smith (alice@email.com)
+          </td>
+        </tr>
+        <tr
+          style="border-bottom: 1px solid var(--border-color);"
+        >
+          <td
+            style="padding: 10px;"
+          >
+            2
+          </td>
+          <td
+            style="padding: 10px;"
+          >
+            Bob Jones (bob@email.com)
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Manager Views Snapshots > should match snapshot for ApplicationsView 1`] = `
+<DocumentFragment>
+  <div
+    class="application-view"
+  >
+    <h2>
+      All Applications
+    </h2>
+    <table
+      style="width: 100%; border-collapse: collapse; margin-top: 20px;"
+    >
+      <thead>
+        <tr
+          style="text-align: left; border-bottom: 2px solid var(--border-color);"
+        >
+          <th
+            style="padding: 10px;"
+          >
+            ID
+          </th>
+          <th
+            style="padding: 10px;"
+          >
+            Pos ID
+          </th>
+          <th
+            style="padding: 10px;"
+          >
+            App ID
+          </th>
+          <th
+            style="padding: 10px;"
+          >
+            Status
+          </th>
+          <th
+            style="padding: 10px;"
+          >
+            Details
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          style="border-bottom: 1px solid var(--border-color);"
+        >
+          <td
+            style="padding: 10px;"
+          >
+            1
+          </td>
+          <td
+            style="padding: 10px;"
+          >
+            1
+          </td>
+          <td
+            style="padding: 10px;"
+          >
+            1
+          </td>
+          <td
+            style="padding: 10px;"
+          >
+            received
+          </td>
+          <td
+            style="padding: 10px;"
+          >
+            Applied via portal
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Manager Views Snapshots > should match snapshot for NurseriesView 1`] = `
+<DocumentFragment>
+  <div
+    class="positions-grid"
+  >
+    <div
+      class="position-card"
+    >
+      <h3>
+        Sunnyside Daycare
+      </h3>
+      <p>
+        ID: 1
+      </p>
+      <span
+        class="badge open"
+      >
+        Has Openings
+      </span>
+    </div>
+    <div
+      class="position-card"
+    >
+      <h3>
+        Green Garden Preschool
+      </h3>
+      <p>
+        ID: 2
+      </p>
+      <span
+        class="badge open"
+      >
+        Has Openings
+      </span>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Manager Views Snapshots > should match snapshot for OpeningsView 1`] = `
+<DocumentFragment>
+  <div
+    class="positions-grid"
+  >
+    <div
+      class="position-card"
+    >
+      <h3
+        style="margin: 0px 0px 10px;"
+      >
+        Lead Educator
+      </h3>
+      <p
+        style="margin: 0px 0px 15px;"
+      >
+        Sunnyside Daycare
+      </p>
+      <div
+        style="display: flex; justify-content: space-between; align-items: center; margin-top: auto; gap: 10px;"
+      >
+        <span
+          class="badge open"
+        >
+          open
+        </span>
+        <button
+          class="btn-primary"
+        >
+          Manage
+        </button>
+      </div>
+    </div>
+    <div
+      class="position-card"
+    >
+      <h3
+        style="margin: 0px 0px 10px;"
+      >
+        Center Manager
+      </h3>
+      <p
+        style="margin: 0px 0px 15px;"
+      >
+        Green Garden Preschool
+      </p>
+      <div
+        style="display: flex; justify-content: space-between; align-items: center; margin-top: auto; gap: 10px;"
+      >
+        <span
+          class="badge open"
+        >
+          open
+        </span>
+        <button
+          class="btn-primary"
+        >
+          Manage
+        </button>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

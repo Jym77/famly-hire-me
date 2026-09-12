@@ -1,0 +1,190 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`UI Components Snapshots > Badge > should match snapshot for desktop > desktop 1`] = `
+<DocumentFragment>
+  <span
+    class="badge open"
+  >
+    Open
+  </span>
+</DocumentFragment>
+`;
+
+exports[`UI Components Snapshots > Badge > should match snapshot for mobile > mobile 1`] = `
+<DocumentFragment>
+  <span
+    class="badge open"
+  >
+    Open
+  </span>
+</DocumentFragment>
+`;
+
+exports[`UI Components Snapshots > NurseryCard > should match snapshot for desktop > desktop 1`] = `
+<DocumentFragment>
+  <div
+    class="position-card"
+  >
+    <h3>
+      Test Nursery
+    </h3>
+    <p>
+      ID: 1
+    </p>
+    <span
+      class="badge open"
+    >
+      Has Openings
+    </span>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`UI Components Snapshots > NurseryCard > should match snapshot for mobile > mobile 1`] = `
+<DocumentFragment>
+  <div
+    class="position-card"
+  >
+    <h3>
+      Test Nursery
+    </h3>
+    <p>
+      ID: 1
+    </p>
+    <span
+      class="badge open"
+    >
+      Has Openings
+    </span>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`UI Components Snapshots > PositionCard > should match snapshot for desktop > desktop 1`] = `
+<DocumentFragment>
+  <div
+    class="position-card"
+  >
+    <h3
+      style="margin: 0px 0px 10px;"
+    >
+      Lead Educator
+    </h3>
+    <p
+      style="margin: 0px 0px 15px;"
+    >
+      Test Nursery
+    </p>
+    <div
+      style="display: flex; justify-content: space-between; align-items: center; margin-top: auto; gap: 10px;"
+    >
+      <span
+        class="badge open"
+      >
+        open
+      </span>
+      <button
+        class="btn-primary"
+      >
+        Apply
+      </button>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`UI Components Snapshots > PositionCard > should match snapshot for mobile > mobile 1`] = `
+<DocumentFragment>
+  <div
+    class="position-card"
+  >
+    <h3
+      style="margin: 0px 0px 10px;"
+    >
+      Lead Educator
+    </h3>
+    <p
+      style="margin: 0px 0px 15px;"
+    >
+      Test Nursery
+    </p>
+    <div
+      style="display: flex; justify-content: space-between; align-items: center; margin-top: auto; gap: 10px;"
+    >
+      <span
+        class="badge open"
+      >
+        open
+      </span>
+      <button
+        class="btn-primary"
+      >
+        Apply
+      </button>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`UI Components Snapshots > should match snapshot for Badge 1`] = `
+<DocumentFragment>
+  <span
+    class="badge open"
+  >
+    Open
+  </span>
+</DocumentFragment>
+`;
+
+exports[`UI Components Snapshots > should match snapshot for NurseryCard 1`] = `
+<DocumentFragment>
+  <div
+    class="position-card"
+  >
+    <h3>
+      Test Nursery
+    </h3>
+    <p>
+      ID: 1
+    </p>
+    <span
+      class="badge open"
+    >
+      Has Openings
+    </span>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`UI Components Snapshots > should match snapshot for PositionCard 1`] = `
+<DocumentFragment>
+  <div
+    class="position-card"
+  >
+    <h3
+      style="margin: 0px 0px 10px;"
+    >
+      Lead Educator
+    </h3>
+    <p
+      style="margin: 0px 0px 15px;"
+    >
+      Test Nursery
+    </p>
+    <div
+      style="display: flex; justify-content: space-between; align-items: center; margin-top: auto; gap: 10px;"
+    >
+      <span
+        class="badge open"
+      >
+        open
+      </span>
+      <button
+        class="btn-primary"
+      >
+        Apply
+      </button>
+    </div>
+  </div>
+</DocumentFragment>
+`;

@@ -17,6 +17,9 @@ listening to `localhost:3000`.
 
 Witten using [Ollama](https://ollama.com/), [Pi agent](https://docs.ollama.com/integrations/pi), and [gemma4:31b-cloud model](https://ollama.com/library/gemma4:31b).
 
+The code is Typescript. The frontends are in React with Vite as server. The backend is an express server with 
+`better-sqlite3` to model the database. Both use Vitest for tests. There is an action to run tests on PRs.
+
 ## Structure
 
 The project consists in two frontends: one for job applicants and one for nursery managers, a shared backend (`server`), 
@@ -25,6 +28,8 @@ and a mock database.
 The frontend is split in two because the applicants one is publicly available while the manager one is only for logged 
 users. The server handles the database connection and requests. The database is a mock that is recreated every time and
 not persisted in any way, as this is just a prototype.
+
+Components and utilities libraries are shared between both frontend. 
 
 ## Database
 
@@ -43,3 +48,8 @@ Applicants and Application can only be created by non-users, not read.
 
 The simple protection also doesn't differentiate between users, it would be more realistic to only allow a given
 nursery manager to view data for their nursery while the group manager would need access to everything. 
+
+While the `server` app itself uses a mock database in its tests, the actual frontends connect to the regular server for
+their own tests (i.e. there isn't a separated production and test server), this should be solved by separate dotenv files
+to use a different server (for end-to-end tests), or a local mock of the server for snapshot and unit tests. The only
+server being already more or less a mock, that was skipped…
